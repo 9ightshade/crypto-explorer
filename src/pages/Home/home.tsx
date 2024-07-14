@@ -1,12 +1,31 @@
 import { CoinContext } from '../../context/CoinContext';
 import './home.css';
 import React, { useContext, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const Home = () => {
 
   const {allCoin, currency} = useContext(CoinContext);
   const [displayCoin, setDisplayCoin] = useState([]);
+const [input, setInput] = useState('');
 
+
+
+  const inputHandler = (event) => {
+    setInput(event.target.value);
+    if (event.target.value === "") {
+      setDisplayCoin(allCoin);
+    }
+  };
+
+
+  const searchHandler = async (event) => {
+    event.preventDefault();
+    const coins = await allCoin.filter((item) => {
+      return item.name.toLowerCase().includes(input.toLowerCase())
+    })
+    setDisplayCoin(coins)
+}
 
 
   useEffect(() => {
@@ -28,8 +47,24 @@ const Home = () => {
           Sign up to explore more about Cryptos.
         </p>
 
-        <form >
-          <input type="text" name="" id="" placeholder='Search crypto...' />
+        <form  onSubmit={searchHandler} >
+          <input type="text" name="" id="" placeholder='Search crypto...' onChange={inputHandler} required value={input} list='coinList' />
+
+          <datalist id='coinList' >
+            {
+              allCoin.map((item, index) => {
+                return (
+                  <option key={index} value={item.name}/>
+                )
+              })
+            }
+          </datalist>
+
+
+
+
+
+
           <button type='submit' >
             search
           </button>
@@ -50,7 +85,7 @@ const Home = () => {
           displayCoin.slice(0, 12).map((item, index) => {
             
             return (
-              <div className='table-layout' key={index} >
+              <Link to={`/coin/${item.id}` }  className='table-layout' key={index} >
                 <p>
                   {
                     item.market_cap_rank
@@ -85,7 +120,7 @@ const Home = () => {
                     item.market_cap.toLocaleString()
                   }
                 </p>
-              </div>
+              </Link>
 
 
             )

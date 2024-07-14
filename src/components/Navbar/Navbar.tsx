@@ -2,6 +2,7 @@ import "./Navbar.css";
 import React, { useContext } from 'react'
 import logo from '../../assets/sp.webp';
 import { CoinContext } from "../../context/CoinContext";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -33,15 +34,18 @@ const {setCurrency}= useContext(CoinContext)
 
   return (
     <div className="navbar" >
-
       <p style={{display:"flex", alignItems:"center", gap:".5em"}} >
-        <img src={logo} alt="logo" className="logo" />
-        Explorer
+        <Link to={'/'} >
+          <img src={logo} alt="logo" className="logo" />
+          Explorer
+        </Link>
       </p>
       
 
       <ul>
-        <li>Home</li>
+        <Link to={'/'} >
+          <li>Home</li>
+        </Link>
         <li>Features</li>
         <li>Pricing</li>
         <li>Blog</li>
