@@ -44,3 +44,11 @@ border-bottom: 1px solid #3c3c3c;
     border: none;
     cursor: pointer;
   }
+  @media (max-width:768px){
+    .navbar{
+      padding: 15px 5%;
+    }
+    .navbar ul{
+      display: none;
+    }
+  }
