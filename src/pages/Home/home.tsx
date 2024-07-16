@@ -102,7 +102,7 @@ const [input, setInput] = useState('');
                     currency.symbol
                   }
                   {
-                    item.current_price
+                    item.current_price.toLocaleString()
                   }
 </p>
                

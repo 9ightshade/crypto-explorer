@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
-const {setCurrency}= useContext(CoinContext)
+  const { setCurrency } = useContext(CoinContext);
+
+
 
   const currencyHandler = (event) => {
     switch (event.target.value) {
@@ -16,7 +18,7 @@ const {setCurrency}= useContext(CoinContext)
       }
        
       case 'euro': {
-        setCurrency({ name: "Naria", symbol: "#" })
+        setCurrency({ name: "euro", symbol: "#" })
         break;
       }
         
