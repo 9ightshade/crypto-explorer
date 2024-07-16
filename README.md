@@ -1,30 +1,54 @@
-# React + TypeScript + Vite
+Project Setup
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Prerequisites:
 
-Currently, two official plugins are available:
+Ensure you have Node.js (version 14 or later) and npm (or yarn) installed on your system. You can verify these by running node -v and npm -v (or yarn -v) in your terminal.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Create React App with Vite:]
 
-## Expanding the ESLint configuration
+Open your terminal and navigate to your desired project directory.
+Run the following command to create a new React project using Vite:
+Bash
+npm create vite@latest my-crypto-explorer --template react
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+Replace my-crypto-explorer with your preferred project name.
+Navigate to Project Directory:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Use cd my-crypto-explorer to enter the newly created project directory.
+Dependencies
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Run npm install
+
+Install react-router-dom:
+
+We'll use react-router for routing to different pages of the application. Install it using npm or yarn:
+Bash
+npm install react-router-dom
+
+
+Alternatively, with yarn:
+Bash
+yarn add react-router-dom
+
+Install react-google-charts:
+
+We'll use react-google-charts for displaying crypto charts on details page of the application. Install it using npm or yarn:
+Bash
+npm install react-google-charts
+
+
+Alternatively, with yarn:
+Bash
+yarn add react-google-charts
+
+
+CoinGecko API Key
+
+Create a CoinGecko Account:
+
+If you don't have one, sign up for a free CoinGecko account at https://www.coingecko.com/.
+Generate API Key:
+
+Go to your CoinGecko account settings and navigate to the API Keys section.
+Create a new API key and copy it for later use.

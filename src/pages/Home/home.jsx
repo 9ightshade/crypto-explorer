@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
 
-  const {allCoin, currency} = useContext(CoinContext);
+  const { allCoin, currency } = useContext(CoinContext);
   const [displayCoin, setDisplayCoin] = useState([]);
-const [input, setInput] = useState('');
+  const [input, setInput] = useState('');
 
 
 
@@ -25,12 +25,12 @@ const [input, setInput] = useState('');
       return item.name.toLowerCase().includes(input.toLowerCase())
     })
     setDisplayCoin(coins)
-}
+  }
 
 
   useEffect(() => {
-  setDisplayCoin(allCoin)
-},[allCoin])
+    setDisplayCoin(allCoin)
+  }, [allCoin])
 
 
 
@@ -47,14 +47,14 @@ const [input, setInput] = useState('');
           Sign up to explore more about Cryptos.
         </p>
 
-        <form  onSubmit={searchHandler} >
+        <form onSubmit={searchHandler} >
           <input type="text" name="" id="" placeholder='Search crypto...' onChange={inputHandler} required value={input} list='coinList' />
 
           <datalist id='coinList' >
             {
               allCoin.map((item, index) => {
                 return (
-                  <option key={index} value={item.name}/>
+                  <option key={index} value={item.name} />
                 )
               })
             }
@@ -83,19 +83,19 @@ const [input, setInput] = useState('');
 
         {
           displayCoin.slice(0, 12).map((item, index) => {
-            
+
             return (
-              <Link to={`/coin/${item.id}` }  className='table-layout' key={index} >
+              <Link to={`/coin/${item.id}`} className='table-layout' key={index} >
                 <p>
                   {
                     item.market_cap_rank
                   }
-                </p>                
+                </p>
                 <div>
                   <img src={item.image} alt="" />
                   <p>
                     {item.name + '-' + item.symbol}
-                  </p> 
+                  </p>
                 </div>
                 <p>
                   {
@@ -104,11 +104,11 @@ const [input, setInput] = useState('');
                   {
                     item.current_price.toLocaleString()
                   }
-</p>
-               
-                <p className={item.price_change_percentage_24h> 0?'green': 'red' } >
+                </p>
+
+                <p className={item.price_change_percentage_24h > 0 ? 'green' : 'red'} >
                   {
-                    Math.floor(item.price_change_percentage_24h*100)/100
+                    Math.floor(item.price_change_percentage_24h * 100) / 100
                   }
                 </p>
 
